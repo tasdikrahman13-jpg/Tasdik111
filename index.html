@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasdik Promotion</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #080b18, #17102b);
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg, #6d28d9, #db2777);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.container {
+  width: 95%;
+  max-width: 800px;
+  margin: auto;
+  padding: 25px 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.plan {
+  background: #151a2e;
+  border: 2px solid #7134d9;
+  border-radius: 18px;
+  padding: 22px 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.plan h2 {
+  margin: 5px 0;
+  font-size: 23px;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  color: #4ade80;
+  margin: 15px 0;
+}
+
+.order {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.payment {
+  margin-top: 30px;
+  padding: 25px 15px;
+  text-align: center;
+  background: #151a2e;
+  border: 2px solid #7c3aed;
+  border-radius: 20px;
+}
+
+.payment h2 {
+  font-size: 28px;
+  color: #c084fc;
+}
+
+.qr {
+  display: block;
+  width: 280px;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 8px;
+  background: white;
+  border-radius: 12px;
+}
+
+.selected {
+  margin-top: 20px;
+  padding: 15px;
+  background: #242b45;
+  border-radius: 10px;
+  display: none;
+}
+
+.note {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #94a3b8;
+}
+
+@media (max-width: 550px) {
+  header h1 {
+    font-size: 29px;
+  }
+
+  .plans {
+    grid-template-columns: 1fr;
+  }
+
+  .plan h2 {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 TASDIK PROMOTION</h1>
+  <p>Social Media Promotion Packages</p>
+</header>
+
+<div class="container">
+
+  <h2 class="title">💎 Choose Your Package</h2>
+
+  <div class="plans">
+
+    <div class="plan">
+      <h2>100 Subscribers</h2>
+      <div class="price">₹15</div>
+      <button class="order" onclick="selectPlan(100,15)">
+        ORDER NOW
+      </button>
+    </div>
+
+    <div class="plan">
+      <h2>200 Subscribers</h2>
+      <div class="price">₹25</div>
+      <button class="order" onclick="selectPlan(200,25)">
+        ORDER NOW
+      </button>
+    </div>
+
+    <div class="plan">
+      <h2>300 Subscribers</h2>
+      <div class="price">₹40</div>
+      <button class="order" onclick="selectPlan(300,40)">
+        ORDER NOW
+      </button>
+    </div>
+
+    <div class="plan">
+      <h2>600 Subscribers</h2>
+      <div class="price">₹70</div>
+      <button class="order" onclick="selectPlan(600,70)">
+        ORDER NOW
+      </button>
+    </div>
+
+    <div class="plan">
+      <h2>800 Subscribers</h2>
+      <div class="price">₹90</div>
+      <button class="order" onclick="selectPlan(800,90)">
+        ORDER NOW
+      </button>
+    </div>
+
+    <div class="plan">
+      <h2>1000 Subscribers</h2>
+      <div class="price">₹110</div>
+      <button class="order" onclick="selectPlan(1000,110)">
+        ORDER NOW
+      </button>
+    </div>
+
+  </div>
+
+  <div class="payment">
+
+    <h2>💳 Payment</h2>
+
+    <p>Scan the QR code below to make your payment.</p>
+
+    <!-- YOUR PAYMENT QR CODE -->
+    <img src="1000224696.jpg" alt="Payment QR Code" class="qr">
+
+    <div id="selected" class="selected"></div>
+
+    <p class="note">
+      After making payment, keep your payment confirmation.
+    </p>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Tasdik Promotion
+</footer>
+
+<script>
+function selectPlan(subscribers, price) {
+
+  let box = document.getElementById("selected");
+
+  box.style.display = "block";
+
+  box.innerHTML =
+    "<strong>Selected Package</strong><br><br>" +
+    subscribers + " Subscribers — ₹" + price +
+    "<br><br>" +
+    "Please scan the QR code above to pay.";
+
+  box.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+</script>
+
+</body>
+</html>
